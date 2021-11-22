@@ -1,8 +1,13 @@
 FROM docker.io/matrixdotorg/synapse
 
-ADD /conf/homeserver.yaml /conf/homeserver.yaml
+COPY /etc/homeserver.yaml /data/homeserver.yaml
+
 
 VOLUME ["/data"]
+
+RUN chown 991:991 /data \
+        && mkdir /data/media_store \
+        && chown 991:991 /data/media_store
 
 EXPOSE 8008/tcp 8009/tcp 8448/tcp
 
