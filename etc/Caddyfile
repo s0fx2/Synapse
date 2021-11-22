@@ -1,0 +1,8 @@
+matrix.s0f.linkpc.net {
+  reverse_proxy /_matrix/* http://localhost:8008
+  reverse_proxy /_synapse/client/* http://localhost:8008
+}
+
+s0f.linkpc.net:8448 {
+  reverse_proxy http://localhost:8008
+}
